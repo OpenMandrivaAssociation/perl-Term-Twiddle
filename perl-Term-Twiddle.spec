@@ -1,19 +1,19 @@
 %define upstream_name    Term-Twiddle
 %define upstream_version 2.71
 
-Name:       perl-%{upstream_name}
-Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 2
+Name:		perl-%{upstream_name}
+Version:	%perl_convert_version %{upstream_version}
+Release:	3
 
-Summary:    Twiddles baton while-u-wait for long subrout
-License:    GPL+ or Artistic
-Group:      Development/Perl
-Url:        http://search.cpan.org/dist/%{upstream_name}
-Source0:    http://www.cpan.org/modules/by-module/Term/%{upstream_name}-%{upstream_version}.tar.gz
+Summary:	Twiddles baton while-u-wait for long subrout
+License:	GPL+ or Artistic
+Group:		Development/Perl
+Url:		http://search.cpan.org/dist/%{upstream_name}
+Source0:	http://www.cpan.org/modules/by-module/Term/%{upstream_name}-%{upstream_version}.tar.gz
 
-BuildRequires: perl(Time::HiRes)
-BuildArch: noarch
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
+BuildRequires:	perl-devel
+BuildRequires:	perl(Time::HiRes)
+BuildArch:	noarch
 
 %description
 Always fascinated by the spinner during FreeBSD's loader bootstrap, I
@@ -26,23 +26,29 @@ thumbs, they can watch the computer twiddle its thumbs.
 %setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
-%{__perl} Makefile.PL INSTALLDIRS=vendor
+perl Makefile.PL INSTALLDIRS=vendor
 %make
 
 %check
 %make test </dev/null
 
 %install
-rm -rf %buildroot
 %makeinstall_std
 
-%clean
-rm -rf %buildroot
-
 %files
-%defattr(-,root,root)
 %doc Changes README
 %{_mandir}/man3/*
-%perl_vendorlib/*
+%{perl_vendorlib}/*
+
+%changelog
+* Mon Apr 18 2011 Funda Wang <fwang@mandriva.org> 2.710.0-2mdv2011.0
++ Revision: 655224
+- rebuild for updated spec-helper
+
+* Thu Dec 31 2009 Jérôme Quelin <jquelin@mandriva.org> 2.710.0-1mdv2011.0
++ Revision: 484420
+- import perl-Term-Twiddle
 
 
+* Thu Dec 31 2009 cpan2dist 2.71-1mdv
+- initial mdv release, generated with cpan2dist
