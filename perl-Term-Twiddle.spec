@@ -1,15 +1,15 @@
 %define upstream_name    Term-Twiddle
-%define upstream_version 2.71
+%define upstream_version 2.73
 
 Name:		perl-%{upstream_name}
-Version:	%perl_convert_version %{upstream_version}
-Release:	3
+Version:	%perl_convert_version 2.73
+Release:	1
 
 Summary:	Twiddles baton while-u-wait for long subrout
 License:	GPL+ or Artistic
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{upstream_name}
-Source0:	http://www.cpan.org/modules/by-module/Term/%{upstream_name}-%{upstream_version}.tar.gz
+Source0:	http://www.cpan.org/modules/by-module/Term/Term-Twiddle-2.73.tar.gz
 
 BuildRequires:	perl-devel
 BuildRequires:	perl(Time::HiRes)
@@ -52,3 +52,4 @@ perl Makefile.PL INSTALLDIRS=vendor
 
 * Thu Dec 31 2009 cpan2dist 2.71-1mdv
 - initial mdv release, generated with cpan2dist
+
