@@ -3,7 +3,7 @@
 
 Name:		perl-%{upstream_name}
 Version:	%perl_convert_version 2.73
-Release:	1
+Release:	2
 
 Summary:	Twiddles baton while-u-wait for long subrout
 License:	GPL+ or Artistic
