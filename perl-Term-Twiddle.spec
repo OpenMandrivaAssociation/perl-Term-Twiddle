@@ -1,14 +1,12 @@
 %define upstream_name    Term-Twiddle
-%define upstream_version 2.73
-
 Name:		perl-%{upstream_name}
-Version:	%perl_convert_version 2.73
-Release:	3
+Version:	2.73
+Release:	4
 
 Summary:	Twiddles baton while-u-wait for long subrout
 License:	GPL+ or Artistic
 Group:		Development/Perl
-Url:		https://search.cpan.org/dist/%{upstream_name}
+Url:		https://metacpan.org/dist/%{upstream_name}
 Source0:	http://www.cpan.org/modules/by-module/Term/Term-Twiddle-2.73.tar.gz
 
 BuildRequires:	make
@@ -24,7 +22,7 @@ users have to wait for something to finish, instead of twiddling their
 thumbs, they can watch the computer twiddle its thumbs.
 
 %prep
-%setup -q -n %{upstream_name}-%{upstream_version}
+%setup -q -n %{upstream_name}-%{version}
 
 %build
 perl Makefile.PL INSTALLDIRS=vendor
